@@ -1,51 +1,98 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>집들이에 초대합니다!</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 2rem;
-      background-color: #fefae0;
-      color: #333;
-    }
-    img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-    .map {
-      margin-top: 1rem;
-    }
-    a.button {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #faedcd;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #333;
-      margin-top: 1rem;
-    }
-  </style>
-</head>
-<body>
-  <h1>김모래의 집들이에 초대합니다! 🏡</h1>
-  <p>이번엔 우리집으로 오라이 오라이~ .</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>후니 집들이에 초대합니다!</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .card-container {
+        perspective: 1000px;
+        width: 600px;
+        height: 350px;
+        margin: 50px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.8s;
+        cursor: pointer;
+      }
 
-  <img src="사진_링크.jpg" alt="사진 넣어도됨" />
+      .card-front,
+      .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
 
-  <p><strong>📅 날짜:</strong> 2025년 5월 일 </p>
-  <p><strong>📍 주소:</strong> 경기도 성남시 수정구 </p>
+      .card-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-  <div class="map">
-    <a class="button" href="https://map.naver.com/..." target="_blank">지도 보기</a>
-  </div>
+      .card-back {
+        background-color: #fff8f0;
+        color: #333;
+        padding: 20px;
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+      .card.flipped {
+        transform: rotateY(180deg);
+      }
 
-  <p>오실 수 있다면 손들기 </p>
-  <p><strong>☎ 연락처:</strong> 010-0000-0000</p>
-</body>
+      @media (max-width: 768px) {
+        .card-container {
+          width: 100%;
+          margin: 20px auto;
+        }
+
+        .card-back {
+          font-size: 14px;
+          padding: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-container">
+      <div class="card" id="invitationCard">
+        <div class="card-front">
+          <img src="firstimg.png" alt="초대 이미지" />
+        </div>
+        <div class="card-back">
+          <h2>후니 집에 놀러오세요!</h2>
+          <p>📅 날짜: 2025년 6월 2일</p>
+          <p>📍 장소: 경상북도 의성군 아리아빌 502</p>
+          <p>⏰ 시간: 오후 3시부터</p>
+          <p>☎️ 연락처: 010-0000-0000</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const card = document.getElementById("invitationCard");
+
+    card.addEventListener("click", () => {
+      card.classList.toggle("flipped");
+    });
+  </script>
 </html>
