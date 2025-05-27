@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 .envelope-wrapper {
   display: flex;
   flex-direction: column;
@@ -70,19 +71,12 @@
   text-align: center;
 }
 
-.invitation-card.flipped {
-  transform: rotateY(180deg);
-}
 .under-text {
   font-size: 24px;
+  margin-top: 16px;
 }
 
 @media (max-width: 768px) {
-  .card-container {
-    width: 100%;
-    margin: 20px auto;
-  }
-
   .card-back {
     font-size: 14px;
     padding: 16px;
