@@ -1,0 +1,88 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.envelope-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fef5e7;
+  overflow: hidden;
+}
+
+.envelope {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: #d35400;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #e67e22;
+  transform-origin: top;
+  transition: transform 1s ease;
+  z-index: 2;
+}
+
+.invitation-card {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transform: translateY(0);
+  transition: transform 0.8s ease;
+  z-index: 1;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-back {
+  background: #fff;
+  padding: 20px;
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+.invitation-card.flipped {
+  transform: rotateY(180deg);
+}
+.under-text {
+  font-size: 24px;
+}
+@media (max-width: 768px) {
+  .card-container {
+    width: 100%;
+    margin: 20px auto;
+  }
+
+  .card-back {
+    font-size: 14px;
+    padding: 16px;
+  }
+}

@@ -4,95 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>후니 집들이에 초대합니다!</title>
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
-      .card-container {
-        perspective: 1000px;
-        width: 600px;
-        height: 350px;
-        margin: 50px auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .card {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        transform-style: preserve-3d;
-        transition: transform 0.8s;
-        cursor: pointer;
-      }
-
-      .card-front,
-      .card-back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        backface-visibility: hidden;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .card-front img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .card-back {
-        background-color: #fff8f0;
-        color: #333;
-        padding: 20px;
-        transform: rotateY(180deg);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-      }
-      .card.flipped {
-        transform: rotateY(180deg);
-      }
-
-      @media (max-width: 768px) {
-        .card-container {
-          width: 100%;
-          margin: 20px auto;
-        }
-
-        .card-back {
-          font-size: 14px;
-          padding: 16px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="card-container">
-      <div class="card" id="invitationCard">
-        <div class="card-front">
-          <img src="firstimg.png" alt="초대 이미지" />
-        </div>
-        <div class="card-back">
-          <h2>후니 집에 놀러오세요!</h2>
-          <p>📅 날짜: 2025년 6월 2일</p>
-          <p>📍 장소: 경상북도 의성군 아리아빌 502</p>
-          <p>⏰ 시간: 오후 3시부터</p>
-          <p>☎️ 연락처: 010-0000-0000</p>
+    <div class="envelope-wrapper">
+      <div class="envelope">
+        <div class="flap"></div>
+        <div class="invitation-card" id="invitationCard">
+          <div class="card-front">
+            <img src="firstimg.png" alt="초대 이미지" />
+          </div>
+
+          <div class="card-back">
+            <h2>후니 집에 놀러오세요!</h2>
+            <p>📅 날짜: 2025년 6월 2일</p>
+            <p>📍 장소: dd</p>
+            <p>⏰ 시간: 오후 3시부터</p>
+            <p>☎️ 연락처: 010-0000-0000</p>
+          </div>
         </div>
       </div>
+      <div class="under-text">사진을 클릭해보세요!</div>
     </div>
   </body>
-  <script>
-    const card = document.getElementById("invitationCard");
 
-    card.addEventListener("click", () => {
-      card.classList.toggle("flipped");
-    });
-  </script>
+  <script src="script.js"></script>
 </html>
