@@ -1,6 +1,6 @@
 {
   "name": "party",
-  "homepage": "https://https://kib09.github.io/party/",
+  "homepage": "https://https://kib09.github.io/party",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,12 +8,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.1",
     "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
