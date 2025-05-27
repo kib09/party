@@ -1,52 +1,97 @@
-import { useEffect, useRef, useState } from "react";
-import "./App.css";
+import { useEffect, useRef } from "react";
 import FirstImg from "./assets/firstimg.png";
 
 function App() {
-  const flapRef = useRef(null);
-  const cardRef = useRef(null);
-  const [isFlipped, setIsFlipped] = useState(false);
+  const containerRef = useRef(null);
+  const overlayRef = useRef(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (flapRef.current && cardRef.current) {
-        flapRef.current.style.transform = "rotateX(-180deg)";
-        cardRef.current.style.transform = "translateY(-100%) rotateY(0deg)";
+    const container = containerRef.current;
+    const overlay = overlayRef.current;
+
+    const handleMouseMove = (e) => {
+      const x = e.offsetX;
+      const y = e.offsetY;
+      const rotateY = (-1 / 5) * x + 20;
+      const rotateX = (4 / 30) * y - 20;
+
+      if (overlay) {
+        overlay.style.backgroundPosition = `${x / 5 + y / 5}%`;
+        overlay.style.filter = `opacity(${x / 200}) brightness(1.2)`;
       }
-    }, 10);
+
+      if (container) {
+        container.style.transform = `perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      }
+    };
+
+    const handleMouseOut = () => {
+      if (overlay) overlay.style.filter = "opacity(0)";
+      if (container)
+        container.style.transform =
+          "perspective(350px) rotateY(0deg) rotateX(0deg)";
+    };
+
+    const handleDeviceOrientation = (event) => {
+      const { beta, gamma } = event;
+      const rotateX = beta * 0.5;
+      const rotateY = gamma * 0.5;
+
+      if (container) {
+        container.style.transform = `perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      }
+    };
+
+    if (container) {
+      container.addEventListener("mousemove", handleMouseMove);
+      container.addEventListener("mouseout", handleMouseOut);
+    }
+
+    // 모바일 권한 요청 및 등록
+    if (
+      typeof DeviceOrientationEvent !== "undefined" &&
+      typeof DeviceOrientationEvent.requestPermission === "function"
+    ) {
+      DeviceOrientationEvent.requestPermission()
+        .then((response) => {
+          if (response === "granted") {
+            window.addEventListener(
+              "deviceorientation",
+              handleDeviceOrientation
+            );
+          }
+        })
+        .catch(console.error);
+    } else {
+      window.addEventListener("deviceorientation", handleDeviceOrientation);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("mousemove", handleMouseMove);
+        container.removeEventListener("mouseout", handleMouseOut);
+      }
+      window.removeEventListener("deviceorientation", handleDeviceOrientation);
+    };
   }, []);
 
-  const handleCardClick = () => {
-    setIsFlipped((prev) => !prev);
-    if (cardRef.current) {
-      cardRef.current.style.transform = isFlipped
-        ? "translateY(-100%) rotateY(0deg)"
-        : "translateY(-100%) rotateY(180deg)";
-    }
-  };
-
   return (
-    <div className="envelope-wrapper">
-      <div className="envelope">
-        <div className="flap" ref={flapRef}></div>
+    <div className="flex flex-col justify-center items-center h-screen bg-[#fef5e7] overflow-hidden">
+      <div
+        ref={containerRef}
+        className="relative w-[400px] h-[400px] rounded-xl overflow-hidden transition-transform duration-300 ease-out cursor-pointer"
+      >
         <div
-          className="invitation-card"
-          ref={cardRef}
-          onClick={handleCardClick}
-        >
-          <div className="card-front">
-            <img src={FirstImg} alt="초대 이미지" />
-          </div>
-          <div className="card-back">
-            <h2 className="">후니 집에 놀러오세요!</h2>
-            <p>📅 날짜: 2025년 6월 2일</p>
-            <p>📍 장소: dd</p>
-            <p>⏰ 시간: 오후 3시부터</p>
-            <p>☎️ 연락처: 010-0000-0000</p>
-          </div>
-        </div>
+          ref={overlayRef}
+          className="absolute inset-0 bg-gradient-to-br from-transparent to-white opacity-0 pointer-events-none transition-all duration-300"
+        />
+        <img
+          src={FirstImg}
+          alt="초대 이미지"
+          className="w-full h-full object-cover rounded-xl pointer-events-none "
+        />
       </div>
-      <div className="under-text">사진을 클릭해보세요!</div>
+      <div className="mt-10">사진을 클릭해보세요</div>
     </div>
   );
 }
