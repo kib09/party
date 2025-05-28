@@ -3,7 +3,7 @@ import KakaoMapBox from "../component/KakaoMapBox";
 
 function Mainpage() {
   return (
-    <div className="flex flex-col items-center h-screen bg-[#fef5e7] pt-20 pb-15 ">
+    <div className="flex flex-col items-center h-[100dvh] bg-[#fef5e7] pt-20 pb-15 ">
       <div className="relative bg-white w-[400px] rounded-xl shadow-2xl p-5 ">
         <div className="h-10 mb-12">
           <MultiLineTyping
