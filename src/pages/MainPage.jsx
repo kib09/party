@@ -6,7 +6,7 @@ function Mainpage() {
       <div className="relative  bg-white w-[400px] rounded-xl shadow-2xl ">
         <div className="h-10 mb-20 p-3 ">
           <MultiLineTyping
-            lines={["Weelcome to", "huin's House"]}
+            lines={["Weelcome to", "hooin's House"]}
             speed={100}
           />
         </div>
