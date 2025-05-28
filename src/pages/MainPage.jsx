@@ -2,9 +2,9 @@ import MultiLineTyping from "../component/MultiLineTyping";
 
 function Mainpage() {
   return (
-    <div className="flex flex-col items-center h-screen bg-[#fef5e7] overflow-hidden pt-20">
-      <div className="relative  bg-white w-[400px] rounded-xl overflow-hidden ">
-        <div className="h-10 mb-20 p-3">
+    <div className="flex flex-col items-center h-screen bg-[#fef5e7] overflow-hidden pt-20 ">
+      <div className="relative  bg-white w-[400px] rounded-xl shadow-2xl ">
+        <div className="h-10 mb-20 p-3 ">
           <MultiLineTyping
             lines={["Weelcome to", "huin's House"]}
             speed={100}
