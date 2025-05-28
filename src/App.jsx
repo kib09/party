@@ -4,12 +4,10 @@ import Mainpage from "./pages/MainPage";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<FirstPage />} />
-        <Route path="/main" element={<Mainpage />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<FirstPage />} />
+      <Route path="/main" element={<Mainpage />} />
+    </Routes>
   );
 }
 

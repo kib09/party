@@ -3,20 +3,20 @@ import KakaoMapBox from "../component/KakaoMapBox";
 
 function Mainpage() {
   return (
-    <div className="flex flex-col items-center h-screen bg-[#fef5e7] overflow-hidden pt-20 ">
-      <div className="relative  bg-white w-[400px] rounded-xl shadow-2xl ">
-        <div className="h-10 mb-20 p-3 ">
+    <div className="flex flex-col items-center h-screen bg-[#fef5e7] pt-20 ">
+      <div className="relative bg-white w-[400px] rounded-xl shadow-2xl p-5 ">
+        <div className="h-10 mb-12">
           <MultiLineTyping
             lines={["Weelcome to", "hooin's House"]}
             speed={100}
           />
         </div>
-        <div className=" flex flex-col items-center justify-center mb-20 gap-10">
+        <div className=" flex flex-col items-center justify-center  gap-5">
           <h2>후니 집에 놀러오세요!</h2>
           <p>📅 날짜: 2025년 6월 2일</p>
 
-          <div className="mt-10 w-[400px] p-5">
-            <div className="mb-5 flex justify-center">
+          <div className="w-[400px] p-5">
+            <div className="mb-5 flex justify-center ">
               📍 장소:
               <p>
                 의성군 의성읍 후죽리 <br />
