@@ -3,7 +3,7 @@ import KakaoMapBox from "../component/KakaoMapBox";
 
 function Mainpage() {
   return (
-    <div className="flex flex-col items-center h-screen bg-[#fef5e7] pt-20 ">
+    <div className="flex flex-col items-center h-screen bg-[#fef5e7] pt-20 pb-15 ">
       <div className="relative bg-white w-[400px] rounded-xl shadow-2xl p-5 ">
         <div className="h-10 mb-12">
           <MultiLineTyping
@@ -11,13 +11,19 @@ function Mainpage() {
             speed={100}
           />
         </div>
-        <div className=" flex flex-col items-center justify-center  gap-5">
-          <h2>후니 집에 놀러오세요!</h2>
-          <p>📅 날짜: 2025년 6월 2일</p>
+        <div className=" flex flex-col items-center justify-center gap-5 font-pokemon text-2xl">
+          <h2>우리 집에 놀러오도록!!</h2>
+          <p>
+            우리는
+            <br />
+            2025년 6월 9일
+            <br />
+            오후 6시 부터 달린다!
+          </p>
 
           <div className="w-[400px] p-5">
             <div className="mb-5 flex justify-center ">
-              📍 장소:
+              집합 장소:
               <p>
                 의성군 의성읍 후죽리 <br />
                 442-8 503호(아리아빌)
@@ -34,8 +40,7 @@ function Mainpage() {
             </a>
           </div>
 
-          <p>⏰ 시간: 오후 3시부터</p>
-          <p>☎️ 연락처: 010-0000-0000</p>
+          <p>고오급 연락처: 010-6433-6711</p>
         </div>
       </div>
     </div>

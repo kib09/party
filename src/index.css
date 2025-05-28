@@ -26,11 +26,18 @@
 
 @theme {
   --font-Amarillo: "Amarillo", "sans-serif";
+  --font-pokemon: "Pokemon", "sans-serif";
 }
 
 @font-face {
   font-family: "Amarillo";
   src: url("/src/assets/Font/Amarillo.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pokemon";
+  src: url("/src/assets/Font/pokemon-dppt.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
