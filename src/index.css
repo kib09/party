@@ -27,6 +27,7 @@
 @theme {
   --font-Amarillo: "Amarillo", "sans-serif";
   --font-pokemon: "Pokemon", "sans-serif";
+  --font-cookie: "CookieRun", "sans-serif";
 }
 
 @font-face {
@@ -36,8 +37,33 @@
   font-style: normal;
 }
 @font-face {
+  font-family: "CookieRun";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Pokemon";
   src: url("/src/assets/Font/pokemon-dppt.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
+}
+
+/* 뒤집기 */
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(-180deg);
 }
